@@ -1,5 +1,7 @@
 package com.example.weightlifting;
 
+import android.util.Log;
+
 public class Workout {
 	
 	Exercise[] exercises;

@@ -1,7 +1,5 @@
 package com.example.weightlifting;
 
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
