@@ -6,6 +6,8 @@ public class Workout {
 	
 	Exercise[] exercises;
 	
+	public Exercise[] getExerciseList(){ return exercises; }
+	
 	public Workout(String workout_str){
 		/*String workout_str="Back Squat:4x3;" +
 				"Power Cl&Jerk:4x1x2;" +
@@ -25,5 +27,4 @@ public class Workout {
 			exercises[i] = new Exercise(exercise_strings[i]);
 		}
 	}
-
 }

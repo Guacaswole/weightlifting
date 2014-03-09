@@ -8,6 +8,11 @@ public class Exercise {
 	int weight;
 	Set[] sets;
 	
+	public String getName(){ return name; }
+	public int getWeight(){ return weight; }
+	public Set[] getSets() { return sets; }
+	public int getNumberOfSets() { return sets.length; }
+	
 	public Exercise(String exercise_str){
 		name = parseExerciseString(exercise_str);
 	}
@@ -47,5 +52,4 @@ public class Exercise {
 		
 		return name_and_sets[NAME];
 	}
-
 }
