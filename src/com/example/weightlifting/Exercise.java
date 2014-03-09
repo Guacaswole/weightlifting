@@ -1,6 +1,9 @@
 package com.example.weightlifting;
 
-import android.util.Log;
+import android.content.Context;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class Exercise {
 	
@@ -51,5 +54,41 @@ public class Exercise {
 		}
 		
 		return name_and_sets[NAME];
+	}
+	
+	public LinearLayout createLayoutForExercise(Context context){
+		LinearLayout layout = new LinearLayout(context);
+		
+		LinearLayout.LayoutParams layout_params = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT
+				);
+		
+		// Label for the name
+		TextView exercise_name = new TextView(context);
+		exercise_name.setText(getName());
+
+		// Create Params 
+		LinearLayout.LayoutParams exercise_name_params = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.WRAP_CONTENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT
+				);
+		LinearLayout.LayoutParams set_params = exercise_name_params;
+		
+		exercise_name_params.weight = 1.0f;
+		exercise_name.setLayoutParams(exercise_name_params);
+		
+		layout.setLayoutParams(layout_params); // NOT SURE ABOUT THIS LINE
+		layout.addView(exercise_name);
+		
+		// Edit Texts for the sets
+		EditText[] sets = new EditText[getNumberOfSets()];
+		for(EditText set : sets){
+			set = new EditText(context);
+			set.setLayoutParams(set_params);
+			layout.addView(set);
+		}	
+		
+		return layout;
 	}
 }

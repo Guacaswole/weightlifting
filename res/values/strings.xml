@@ -4,7 +4,7 @@
     <string name="app_name">Weightlifting</string>
     <string name="action_settings">Settings</string>
     <string name="button">Begin Workout</string>
-    <string name="title_activity_workout">WorkoutActivity</string>
+    <string name="workout_activity_title">Workout</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

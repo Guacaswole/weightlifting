@@ -21,44 +21,8 @@ public class WorkoutActivity extends Activity {
 		
 		Workout workout = new Workout(workout_str);
 		for(Exercise exercise : workout.getExerciseList()){
-			//createLayoutForExercise(exercise);
+			exercise.createLayoutForExercise(this); // returns layout
 		}
-	}
-	
-	private LinearLayout createLayoutForExercise(Exercise exercise){
-		LinearLayout layout = new LinearLayout(this);
-		
-		LinearLayout.LayoutParams layout_params = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.MATCH_PARENT,
-				LinearLayout.LayoutParams.MATCH_PARENT
-				);
-		
-		// Label for the name
-		TextView exercise_name = new TextView(this);
-		exercise_name.setText(exercise.getName());
-
-		// Create Params 
-		LinearLayout.LayoutParams exercise_name_params = new LinearLayout.LayoutParams(
-				LinearLayout.LayoutParams.WRAP_CONTENT,
-				LinearLayout.LayoutParams.WRAP_CONTENT
-				);
-		LinearLayout.LayoutParams set_params = exercise_name_params;
-		
-		exercise_name_params.weight = 1.0f;
-		exercise_name.setLayoutParams(exercise_name_params);
-		
-		layout.setLayoutParams(layout_params);
-		layout.addView(exercise_name);
-		
-		// Edit Texts for the sets
-		EditText[] sets = new EditText[exercise.getNumberOfSets()];
-		for(EditText set : sets){
-			set = new EditText(this);
-			set.setLayoutParams(set_params);
-			layout.addView(set);
-		}	
-		
-		return layout;
 	}
 
 	@Override
