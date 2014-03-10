@@ -31,6 +31,7 @@ public class ExerciseRowView extends LinearLayout {
 			set.setFilters(new InputFilter[]{new InputFilter.LengthFilter(max_chars)});
 			set.setLayoutParams(new LayoutParams
 					(0, LayoutParams.WRAP_CONTENT, 1f));
+
 			addView(set);
 		}
 	}

@@ -1,15 +1,5 @@
 package com.example.weightlifting;
 
-import android.content.Context;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.TableLayout;
-import android.widget.TextView;
-
 public class Exercise {
 	
 	private String name;
