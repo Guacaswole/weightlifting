@@ -1,7 +1,7 @@
 package com.example.weightlifting;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -18,13 +18,15 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.exercises = exercises;
+        
+        //notifyDataSetChanged();
     }
 	
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
 		
 		Exercise exercise = exercises[position];
-		convertView = (View) exercise.createLayoutForExercise(context);
+		convertView = new ExerciseRowView(context, exercise);
 		
 		return convertView;
 	}

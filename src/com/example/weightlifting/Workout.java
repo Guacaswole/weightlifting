@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class Workout {
 	
-	Exercise[] exercises;
+	private Exercise[] exercises;
 	
 	public Exercise[] getExerciseList(){ return exercises; }
 	

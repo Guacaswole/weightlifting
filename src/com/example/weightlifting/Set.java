@@ -2,9 +2,9 @@ package com.example.weightlifting;
 
 public class Set {
 	
-	int completed_reps;
-	int target_reps;
-	int target_weight;
+	private int completed_reps;
+	private int target_reps;
+	private int target_weight;
 	
 	
 	public Set(int target_reps){

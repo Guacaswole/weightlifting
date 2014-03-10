@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name="com.example.weightlifting.WorkoutActivity"
-            android:label="@string/title_activity_workout" >
+            android:label="@string/workout_activity_title">
         </activity>
     </application>
 

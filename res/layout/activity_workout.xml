@@ -11,10 +11,10 @@
         android:text="@string/workout_activity_title"
         android:textSize="32sp" />
     
-    <LinearLayout 
-        android:id="@+id/layout_container"
+    <ListView
+        android:id="@+id/listview_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" 
-        android:orientation="vertical" />"
+        android:orientation="vertical" />
 
 </LinearLayout>
