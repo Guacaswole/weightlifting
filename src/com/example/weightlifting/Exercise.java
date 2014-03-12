@@ -1,5 +1,13 @@
 package com.example.weightlifting;
 
+import android.content.Context;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
+
 public class Exercise {
 	
 	private String name;
@@ -49,5 +57,36 @@ public class Exercise {
 		}
 		
 		return name_and_sets[NAME];
+	}
+	
+	public LinearLayout getExerciseRowView(Context context) {
+		
+		LinearLayout exercise_row_view = new LinearLayout(context);
+		//exercise_row_view.setId(i);
+		exercise_row_view.setOrientation(LinearLayout.HORIZONTAL);
+		
+		LinearLayout.LayoutParams layout_params = new LinearLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		
+		exercise_row_view.setLayoutParams(layout_params);
+		
+		TextView name = new TextView(context);
+		name.setText(getName());
+		name.setLayoutParams(new LayoutParams
+				(0, LayoutParams.WRAP_CONTENT, 2f));
+		exercise_row_view.addView(name);
+		
+		EditText[] sets_view = new EditText[getSetsTotal()];
+		for(EditText set : sets_view){
+			set = new EditText(context);
+			set.setInputType(InputType.TYPE_CLASS_NUMBER);
+			set.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+			set.setLayoutParams(new LayoutParams
+					(0, LayoutParams.WRAP_CONTENT, 1f));
+			
+			exercise_row_view.addView(set);
+		}
+		
+		return exercise_row_view;
 	}
 }
