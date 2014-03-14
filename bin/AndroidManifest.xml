@@ -24,7 +24,11 @@
         </activity>
         <activity
             android:name="com.example.weightlifting.WorkoutActivity"
-            android:label="@string/workout_activity_title">
+            android:label="@string/workout_activity_title" >
+        </activity>
+        <activity
+            android:name="com.example.weightlifting.SetViewActivity"
+            android:label="@string/title_activity_set_view" >
         </activity>
     </application>
 

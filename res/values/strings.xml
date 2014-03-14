@@ -6,5 +6,6 @@
     <string name="button">Begin Workout</string>
     <string name="workout_activity_title">Workout</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_set_view">SetViewActivity</string>
 
 </resources>

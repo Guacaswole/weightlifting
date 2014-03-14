@@ -1,9 +1,10 @@
 package com.example.weightlifting;
 
 import android.content.Context;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.widget.EditText;
+import android.content.Intent;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
@@ -11,11 +12,9 @@ import android.widget.TextView;
 public class Exercise {
 	
 	private String name;
-	private int weight;
 	private Set[] sets;
 	
 	public String getName(){ return name; }
-	public int getWeight(){ return weight; }
 	public Set[] getSets() { return sets; }
 	public int getSetsTotal() { return sets.length; }
 	
@@ -59,11 +58,20 @@ public class Exercise {
 		return name_and_sets[NAME];
 	}
 	
-	public LinearLayout getExerciseRowView(Context context) {
+	public LinearLayout getExerciseRowView(final Context context) {
 		
 		LinearLayout exercise_row_view = new LinearLayout(context);
-		//exercise_row_view.setId(i);
 		exercise_row_view.setOrientation(LinearLayout.HORIZONTAL);
+		exercise_row_view.setClickable(true);
+		
+		exercise_row_view.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v){
+				Intent intent = new Intent(context, SetViewActivity.class);
+				context.startActivity(intent);
+			}
+		});
 		
 		LinearLayout.LayoutParams layout_params = new LinearLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -72,20 +80,10 @@ public class Exercise {
 		
 		TextView name = new TextView(context);
 		name.setText(getName());
+		name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
 		name.setLayoutParams(new LayoutParams
-				(0, LayoutParams.WRAP_CONTENT, 2f));
+				(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		exercise_row_view.addView(name);
-		
-		EditText[] sets_view = new EditText[getSetsTotal()];
-		for(EditText set : sets_view){
-			set = new EditText(context);
-			set.setInputType(InputType.TYPE_CLASS_NUMBER);
-			set.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-			set.setLayoutParams(new LayoutParams
-					(0, LayoutParams.WRAP_CONTENT, 1f));
-			
-			exercise_row_view.addView(set);
-		}
 		
 		return exercise_row_view;
 	}
