@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 public class SetFragment extends Fragment {
 	
-	final static String EXTRA_EXERCISE_NAME = "EXERCISE_NAME";
+	final static String EXTRA_SET_NAME = "SET_NAME";
 	
-    public static final SetFragment newInstance(Exercise exercise){
+    public static final SetFragment newInstance(Set set){
     	SetFragment set_fragment = new SetFragment();
     	Bundle bundle = new Bundle(1);
     	
-    	bundle.putString(EXTRA_EXERCISE_NAME, exercise.getName());
+    	bundle.putString(EXTRA_SET_NAME, set.getSetNumber());
+    	set_fragment.setArguments(bundle);
     	
     	return set_fragment;
     }
@@ -26,19 +27,19 @@ public class SetFragment extends Fragment {
         Bundle savedInstanceState) {
 		
 		// TEMP!!!
-		String extra_exercise_name = getArguments().getString(EXTRA_EXERCISE_NAME);
+		String extra_set_name = getArguments().getString(EXTRA_SET_NAME);
 		// TEMP!!!! RECONSTRUCT FROM BUNDLE!!!
 		
         View set_view = (View) inflater.inflate(R.layout.fragment_set, container, false);
         
-        TextView exercise_name = (TextView) set_view.findViewById(R.id.exercise_name);
+        TextView set_name = (TextView) set_view.findViewById(R.id.set_name);
         TextView target_weight = (TextView) set_view.findViewById(R.id.target_weight);
         TextView target_reps   = (TextView) set_view.findViewById(R.id.target_reps);
         
         EditText actual_weight        = (EditText) set_view.findViewById(R.id.actual_weight);
         EditText no_of_reps_completed = (EditText) set_view.findViewById(R.id.no_of_reps_completed); 
         
-        exercise_name.setText(extra_exercise_name);
+        set_name.setText(extra_set_name);
         
         return set_view;
     }

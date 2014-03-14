@@ -11,11 +11,14 @@ public class SetViewAdapter extends FragmentPagerAdapter{
 	
 	private List<Fragment> set_fragments;
 
-	public SetViewAdapter(FragmentManager fm) {
+	public SetViewAdapter(FragmentManager fm, Set[] sets) {
 		super(fm);
 		
 		set_fragments = new ArrayList<Fragment>();
-		// TODO Auto-generated constructor stub
+		
+		for (Set set : sets) {
+			set_fragments.add(SetFragment.newInstance(set));
+		}
 	}
 	
 	@Override

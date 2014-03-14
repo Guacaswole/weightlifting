@@ -26,8 +26,8 @@ public class Exercise {
 		this.name = name;
 		
 		sets = new Set[no_of_sets];
-		for(Set set : sets){
-			set = new Set(rep_target);
+		for(int i = 0; i<no_of_sets; i++){
+			sets[i] = new Set(i+1, rep_target);
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class Exercise {
 		
 		sets = new Set[no_of_sets];
 		for(int i=0; i < no_of_sets; i++){
-			sets[i] = new Set(target_reps);
+			sets[i] = new Set(i+1, target_reps);
 		}
 		
 		return name_and_sets[NAME];
@@ -70,6 +70,7 @@ public class Exercise {
 			public void onClick(View v){
 				Intent intent = new Intent(context, SetViewActivity.class);
 				context.startActivity(intent);
+				SetViewActivity.setSetList(getSets());
 			}
 		});
 		

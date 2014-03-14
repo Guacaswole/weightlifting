@@ -27,9 +27,9 @@ public final class R {
         public static final int action_settings=0x7f080008;
         public static final int actual_weight=0x7f080006;
         public static final int begin_workout=0x7f080000;
-        public static final int exercise_name=0x7f080003;
         public static final int main_layout=0x7f080002;
         public static final int no_of_reps_completed=0x7f080007;
+        public static final int set_name=0x7f080003;
         public static final int set_view_pager=0x7f080001;
         public static final int target_reps=0x7f080005;
         public static final int target_weight=0x7f080004;
