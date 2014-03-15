@@ -57,35 +57,4 @@ public class Exercise {
 		
 		return name_and_sets[NAME];
 	}
-	
-	public LinearLayout getExerciseRowView(final Context context) {
-		
-		LinearLayout exercise_row_view = new LinearLayout(context);
-		exercise_row_view.setOrientation(LinearLayout.HORIZONTAL);
-		exercise_row_view.setClickable(true);
-		
-		exercise_row_view.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v){
-				Intent intent = new Intent(context, SetViewActivity.class);
-				context.startActivity(intent);
-				SetViewActivity.setSetList(getSets());
-			}
-		});
-		
-		LinearLayout.LayoutParams layout_params = new LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		
-		exercise_row_view.setLayoutParams(layout_params);
-		
-		TextView name = new TextView(context);
-		name.setText(getName());
-		name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-		name.setLayoutParams(new LayoutParams
-				(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		exercise_row_view.addView(name);
-		
-		return exercise_row_view;
-	}
 }
