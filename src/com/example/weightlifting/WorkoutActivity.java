@@ -1,22 +1,19 @@
 package com.example.weightlifting;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 public class WorkoutActivity extends Activity {
 	
-	private ListView exercise_listview;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,21 +32,12 @@ public class WorkoutActivity extends Activity {
 		}
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		super.onCreateOptionsMenu(menu);
-		getMenuInflater().inflate(R.menu.workout, menu);
-		return true;
-	}
-	
-	public LinearLayout getExerciseRowView(final Exercise exercise) {
+	public View getExerciseRowView(final Exercise exercise) {
 		
-		LinearLayout exercise_row_view = new LinearLayout(this);
-		exercise_row_view.setOrientation(LinearLayout.HORIZONTAL);
-		exercise_row_view.setClickable(true);
+		View exercise_row_view = getLayoutInflater().inflate(R.layout.exercise_row_view, null);
 		
-		exercise_row_view.setOnClickListener(new OnClickListener() {
+		Button exercise_button = (Button) exercise_row_view.findViewById(R.id.go_to_exercise);
+		exercise_button.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v){
@@ -58,18 +46,9 @@ public class WorkoutActivity extends Activity {
 				SetViewActivity.setSetList(exercise.getSets());
 			}
 		});
-		
-		LinearLayout.LayoutParams layout_params = new LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		
-		exercise_row_view.setLayoutParams(layout_params);
-		
-		TextView name = new TextView(this);
+
+		TextView name = (TextView) exercise_row_view.findViewById(R.id.exercise_name);
 		name.setText(exercise.getName());
-		name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-		name.setLayoutParams(new LayoutParams
-				(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		exercise_row_view.addView(name);
 		
 		return exercise_row_view;
 	}
