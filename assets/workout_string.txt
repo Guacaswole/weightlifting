@@ -1,0 +1,100 @@
+{
+	"workout": {
+		"exercise": [
+			{
+				"name": "Squat",
+				"set" [
+					{
+						"name": "Set 1"
+						"target_weight": "70"
+						"target_reps": "3"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 2"
+						"target_weight": "80"
+						"target_reps": "3"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 3"
+						"target_weight": "100"
+						"target_reps": "3"
+						"no_of_reps_completed": ""
+						"notes": ""
+					}
+				]
+			},
+			
+			{
+				"name": "Snatch",
+				"set" [
+					{
+						"name": "Set 1"
+						"target_weight": "40"
+						"target_reps": "3"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 2"
+						"target_weight": "50"
+						"target_reps": "3"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 3"
+						"target_weight": "55"
+						"target_reps": "3"
+						"no_of_reps_completed": ""
+						"notes": ""
+					}
+				]
+			},
+			
+			{
+				"name": "Power Clean",
+				"set" [
+					{
+						"name": "Set 1"
+						"target_weight": "50"
+						"target_reps": "2"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 2"
+						"target_weight": "55"
+						"target_reps": "2"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 3"
+						"target_weight": "60"
+						"target_reps": "2"
+						"no_of_reps_completed": ""
+						"notes": ""
+					},
+					
+					{
+						"name": "Set 4"
+						"target_weight": "65"
+						"target_reps": "2"
+						"no_of_reps_completed": ""
+						"notes": ""
+					}
+				]
+			}
+	  	 ]	
+	}
+}

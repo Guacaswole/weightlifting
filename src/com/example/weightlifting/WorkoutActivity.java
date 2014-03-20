@@ -37,8 +37,7 @@ public class WorkoutActivity extends Activity {
 		View exercise_row_view = getLayoutInflater().inflate(R.layout.exercise_row_view, null);
 		
 		Button exercise_button = (Button) exercise_row_view.findViewById(R.id.go_to_exercise);
-		exercise_button.setOnClickListener(new OnClickListener() {
-			
+		exercise_button.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v){
 				Intent intent = new Intent(v.getContext(), SetViewActivity.class);

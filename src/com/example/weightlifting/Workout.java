@@ -4,9 +4,9 @@ import android.util.Log;
 
 public class Workout {
 	
-	private Exercise[] exercises;
+	private Exercise[] _exercises;
 	
-	public Exercise[] getExerciseList(){ return exercises; }
+	public Exercise[] getExerciseList(){ return _exercises; }
 	
 	public Workout(String workout_str){
 		/*String workout_str="Back Squat:4x3;" +
@@ -21,10 +21,10 @@ public class Workout {
 		
 		String[] exercise_strings = workout_string.split(";");
 		int no_of_exercises = exercise_strings.length;
-		exercises = new Exercise[no_of_exercises];
+		_exercises = new Exercise[no_of_exercises];
 		
 		for(int i=0; i < no_of_exercises; i++){
-			exercises[i] = new Exercise(exercise_strings[i]);
+			_exercises[i] = new Exercise(exercise_strings[i]);
 		}
 	}
 }
