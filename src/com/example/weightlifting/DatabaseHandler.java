@@ -12,7 +12,7 @@ import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-	private static final String TAG = "DatabaseHandler";
+	private static final String TAG = "DEBUG";
 	
 	// DATABASE 
 	private static final String DATABASE_NAME = "Weightlifting.db";
@@ -222,7 +222,40 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();	
 	}
 	
-	public List<String> getAllWorkoutsForUser(int id) { return null; }
+	public List<String> getAllWorkoutsForUser(User user) { 
+	
+		int id = user.getId();
+		SQLiteDatabase db = this.getReadableDatabase();
+		
+		Cursor workout_id_cursor = db.query(TABLE_USER_WORKOUT, new String[] { COLUMN_WORKOUT_ID },
+		COLUMN_USER_ID + "?=", new String[] { String.valueOf(id) }, null, null, null);
+		
+		List<String> workout_list = new ArrayList<String>();
+		
+		int workout_id = 0;
+		Cursor workout_cursor;
+		String[] COLUMNS = new String[] { COLUMN_WORKOUT };
+		
+		if(workout_id_cursor.getCount() > 0){
+			workout_id_cursor.moveToFirst();
+			while(!workout_id_cursor.isAfterLast()){
+				
+				workout_id = workout_id_cursor.getInt(workout_id_cursor.getColumnIndex(COLUMN_WORKOUT_ID));
+				workout_cursor = db.query(TABLE_WORKOUT, COLUMNS, COLUMN_ID + "?=", 
+						new String[] { String.valueOf(workout_id) }, null, null, null);
+				
+				if (workout_cursor != null) workout_cursor.moveToFirst();
+				
+				Log.i(TAG, "Adding workout: " + workout_id + " to workout list for User: " + user.getName());
+				workout_list.add(workout_cursor.getString(workout_cursor.getColumnIndex(COLUMN_WORKOUT)));
+				workout_id_cursor.moveToNext();
+			}
+			Log.i(TAG, "Got list of workout IDs for User: " + user.getName());
+		}
+		
+		db.close();	
+		return workout_list; 
+	}
 	
 	public String getNextWorkoutForUser(int id) { return ""; }
 }
