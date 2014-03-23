@@ -1,60 +1,20 @@
 package com.example.weightlifting;
-
-import android.content.Context;
-import android.content.Intent;
-import android.util.TypedValue;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.TextView;
+import com.google.gson.annotations.SerializedName;
 
 public class Exercise {
 	
+	@SerializedName("name")
 	private String _name;
+	
+	@SerializedName("sets")
 	private Set[] _sets;
 	
+	public Exercise() { } 
+	
 	public String getName(){ return _name; }
+	public void   setName(String name){ _name = name; }
+	
 	public Set[] getSets() { return _sets; }
-	public int getSetsTotal() { return _sets.length; }
-	
-	public Exercise(String exercise_str){
-		parseExerciseString(exercise_str);
-	}
-
-	public Exercise(String name, int no_of_sets, int rep_target){
-		this._name = name;
-		
-		_sets = new Set[no_of_sets];
-		for(int i = 0; i<no_of_sets; i++){
-			_sets[i] = new Set(i+1, rep_target);
-		}
-	}
-	
-	// Returns Exercise name, and creates Sets array
-	private void parseExerciseString(String exercise_str) {
-		// "Back Squat:4x3;"
-		
-		// TODO: Implement double reps -> 1 clean, 2 jerks
-		// "Power Cl&Jerk:4x1x2;"
-		
-		int NAME = 0;
-		int SETS = 1;
-		
-		String[] name_and_sets = exercise_str.split(":");
-		String[] sets_and_reps = name_and_sets[SETS].split("x");
-		
-		SETS = 0;
-		int REPS = 1;
-		
-		int no_of_sets = Integer.parseInt(sets_and_reps[SETS]);
-		int target_reps = Integer.parseInt(sets_and_reps[REPS]);
-		
-		_sets = new Set[no_of_sets];
-		for(int i=0; i < no_of_sets; i++){
-			_sets[i] = new Set(i+1, target_reps);
-		}
-		
-		_name = name_and_sets[NAME];
-	}
+	public void  setSets(Set[] sets) { _sets = sets; }
 }
+

@@ -1,15 +1,21 @@
 package com.example.weightlifting;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.TypedValue;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class WorkoutActivity extends Activity {
@@ -19,15 +25,23 @@ public class WorkoutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_workout);
 		
-		String workout_str="Back Squat:4x3;" +
-				"Power Cl&Jerk:4x1x2;" +
-				"Power Snatch:3x3;" +
-				"Clean Pulls:4x5";
+		File file = new File("C:\\Users\\Mark\\Desktop\\workout_json.txt");
+
+		Reader reader = null;
+		try {
+			reader = new FileReader(file);
+		} catch (FileNotFoundException e) {
+			Log.e("DBG", "WorkoutActivity:onCreate() FIle not found");
+			e.printStackTrace();
+		}
 		
-		Workout workout = new Workout(workout_str);
+		GsonBuilder gb = new GsonBuilder();
+		Gson g = gb.create();
+
+		Workout workout = g.fromJson(reader, Workout.class);
 		
 		LinearLayout exercise_list_layout = (LinearLayout) findViewById(R.id.main_layout);
-		for(Exercise exercise : workout.getExerciseList()){
+		for(Exercise exercise : workout.getExercises()){
 			exercise_list_layout.addView(getExerciseRowView(exercise));
 		}
 	}

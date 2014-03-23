@@ -16,7 +16,7 @@ public class SetFragment extends Fragment {
     	SetFragment set_fragment = new SetFragment();
     	Bundle bundle = new Bundle(1);
     	
-    	bundle.putString(EXTRA_SET_NAME, set.getSetName());
+    	bundle.putString(EXTRA_SET_NAME, set.getName());
     	set_fragment.setArguments(bundle);
     	
     	return set_fragment;
