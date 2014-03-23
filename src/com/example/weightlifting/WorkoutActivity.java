@@ -25,24 +25,25 @@ public class WorkoutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_workout);
 		
-		File file = new File("C:\\Users\\Mark\\Desktop\\workout_json.txt");
+		File workout_json_file = new File("C:\\Users\\Mark\\Desktop\\workout_json.txt");
 
-		Reader reader = null;
+		Reader file_reader = null;
 		try {
-			reader = new FileReader(file);
+			file_reader = new FileReader(workout_json_file);
 		} catch (FileNotFoundException e) {
 			Log.e("DBG", "WorkoutActivity:onCreate() FIle not found");
 			e.printStackTrace();
 		}
 		
-		GsonBuilder gb = new GsonBuilder();
-		Gson g = gb.create();
+		if(file_reader != null){
+			GsonBuilder gson_builder = new GsonBuilder();
+			Gson gson = gson_builder.create();		
+			Workout workout = gson.fromJson(file_reader, Workout.class);
 
-		Workout workout = g.fromJson(reader, Workout.class);
-		
-		LinearLayout exercise_list_layout = (LinearLayout) findViewById(R.id.main_layout);
-		for(Exercise exercise : workout.getExercises()){
-			exercise_list_layout.addView(getExerciseRowView(exercise));
+			LinearLayout exercise_list_layout = (LinearLayout) findViewById(R.id.main_layout);
+			for(Exercise exercise : workout.getExercises()){
+				exercise_list_layout.addView(getExerciseRowView(exercise));
+			}
 		}
 	}
 
