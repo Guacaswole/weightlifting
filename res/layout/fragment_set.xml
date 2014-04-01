@@ -10,22 +10,17 @@
 		android:layout_height="wrap_content"
 		android:textSize="30sp" />
 
-    <TextView 
+    <EditText 
         android:id="@+id/target_weight" 
         android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+		android:layout_height="wrap_content"
+		android:inputType="number" />
     
     <TextView 
         android:id="@+id/target_reps" 
         android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />
-    
-    <EditText 
-        android:id="@+id/actual_weight" 
-        android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:inputType="number" />"
-    
+   
     <EditText
         android:id="@+id/no_of_reps_completed" 
         android:layout_width="wrap_content"

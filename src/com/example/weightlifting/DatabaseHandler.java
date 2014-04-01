@@ -257,5 +257,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return workout_list; 
 	}
 	
-	public String getNextWorkoutForUser(int id) { return ""; }
+	public String getNextWorkoutForUser(User user) { 
+		return "";
+	}
 }
