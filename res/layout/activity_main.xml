@@ -2,11 +2,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <Button android:id="@+id/begin_workout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button" />
-
+    android:orientation="vertical"
+    android:background="@color/mainbackground">
+    
+    <View android:layout_width="match_parent"
+       		android:layout_height="0dp" 
+       		android:layout_weight="1" />
+    
+    <ImageView android:id="@+id/icon"
+       		android:layout_width="150dp"
+       		android:layout_height="150dp" 
+       		android:layout_weight="1"
+       		android:layout_gravity="center"
+       		android:src="@drawable/icon" />
+    
+    <View	android:layout_width="match_parent"
+       		android:layout_height="0dp" 
+       		android:layout_weight="1" />
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="0" > 	
+        <View android:id="@+id/fake_view"
+       		android:layout_width="0dp"
+       		android:layout_height="0dp" 
+       		android:layout_centerInParent="true"/>
+    	<Button
+        	android:id="@+id/workout"
+        	android:layout_width="match_parent"
+        	android:layout_height="100dp"
+        	android:layout_marginRight="1dp"
+        	android:layout_marginBottom="1dp"
+        	android:layout_toLeftOf="@id/fake_view"
+        	android:background="@color/transparent"
+        	android:textColor="@color/textcolor"
+        	android:text="@string/workout" 
+        	/>
+    	<Button
+        	android:id="@+id/overview"
+        	android:layout_width="match_parent"
+        	android:layout_height="100dp"
+        	android:layout_marginLeft="1dp"
+        	android:layout_marginBottom="1dp"
+        	android:layout_toRightOf="@id/fake_view"
+        	android:background="@color/transparent"
+        	android:textColor="@color/textcolor"
+        	android:text="@string/overview" />
+    	<Button
+        	android:id="@+id/connect"
+        	android:layout_width="match_parent"
+        	android:layout_height="100dp"
+        	android:layout_marginRight="1dp"
+        	android:layout_marginTop="1dp"
+        	android:layout_below="@id/workout"
+        	android:layout_toLeftOf="@id/fake_view"
+        	android:background="@color/transparent"
+        	android:textColor="@color/textcolor"
+        	android:text="@string/connect" />
+    	<Button
+        	android:id="@+id/settings"
+        	android:layout_width="match_parent"
+        	android:layout_height="100dp"
+        	android:layout_marginLeft="1dp"
+        	android:layout_marginTop="1dp"
+        	android:layout_below="@id/overview"
+        	android:layout_toRightOf="@id/fake_view"
+        	android:background="@color/transparent"
+        	android:textColor="@color/textcolor"
+        	android:text="@string/settings" />
+    </RelativeLayout>
 </LinearLayout>

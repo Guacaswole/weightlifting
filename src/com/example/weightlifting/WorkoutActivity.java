@@ -13,8 +13,10 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -60,9 +62,11 @@ public class WorkoutActivity extends Activity {
 
 	public View getExerciseRowView(final Exercise exercise) {
 		
+		
+		
 		View exercise_row_view = getLayoutInflater().inflate(R.layout.exercise_row_view, null);
 		
-		Button exercise_button = (Button) exercise_row_view.findViewById(R.id.go_to_exercise);
+		final Button exercise_button = (Button) exercise_row_view.findViewById(R.id.go_to_exercise);
 		exercise_button.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v){
@@ -70,6 +74,23 @@ public class WorkoutActivity extends Activity {
 				startActivity(intent);
 				SetViewActivity.setSetList(exercise.getSets());
 			}
+		});
+		
+		exercise_button.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+		        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+		            exercise_button.setBackgroundColor(getResources().getColor(R.color.textcolor));
+		            exercise_button.setTextColor(getResources().getColor(R.color.transparent));
+		        } 
+		        else if (event.getAction() == MotionEvent.ACTION_UP) {
+		        	exercise_button.setBackgroundColor(getResources().getColor(R.color.transparent));
+		            exercise_button.setTextColor(getResources().getColor(R.color.textcolor));
+		            v.performClick();
+		        }
+		        return true;
+		    }
 		});
 
 		TextView name = (TextView) exercise_row_view.findViewById(R.id.exercise_name);

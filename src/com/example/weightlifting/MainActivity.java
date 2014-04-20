@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
@@ -15,15 +17,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Button begin_workout = (Button) findViewById(R.id.begin_workout);
-		begin_workout.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v){
-				Intent intent = new Intent(v.getContext(), WorkoutActivity.class);
-				startActivity(intent);
-			}
-		});
+		MainScreenButton workout = new MainScreenButton(this, WorkoutActivity.class, R.id.workout);
 	}
 
 	@Override
