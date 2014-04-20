@@ -62,12 +62,9 @@ public class WorkoutActivity extends Activity {
 
 	public View getExerciseRowView(final Exercise exercise) {
 		
+		final View exercise_row_view = getLayoutInflater().inflate(R.layout.exercise_row_view, null);
 		
-		
-		View exercise_row_view = getLayoutInflater().inflate(R.layout.exercise_row_view, null);
-		
-		final Button exercise_button = (Button) exercise_row_view.findViewById(R.id.go_to_exercise);
-		exercise_button.setOnClickListener(new OnClickListener() {	
+		exercise_row_view.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v){
 				Intent intent = new Intent(v.getContext(), SetViewActivity.class);
@@ -76,27 +73,42 @@ public class WorkoutActivity extends Activity {
 			}
 		});
 		
-		exercise_button.setOnTouchListener(new OnTouchListener() {
+		final View padding = (View) exercise_row_view.findViewById(R.id.row_padding);
+		final TextView name = (TextView) exercise_row_view.findViewById(R.id.exercise_name);
+		final TextView go = (TextView) exercise_row_view.findViewById(R.id.go_to_exercise);
+		
+		exercise_row_view.setOnTouchListener(new OnTouchListener() {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 		        if(event.getAction() == MotionEvent.ACTION_DOWN) {
-		            exercise_button.setBackgroundColor(getResources().getColor(R.color.textcolor));
-		            exercise_button.setTextColor(getResources().getColor(R.color.transparent));
+		        	padding.setBackgroundColor(getResources().getColor(R.color.textcolor));
+		        	setViewBackgroundColourOnClick(name);
+		        	setViewBackgroundColourOnClick(go);
 		        } 
 		        else if (event.getAction() == MotionEvent.ACTION_UP) {
-		        	exercise_button.setBackgroundColor(getResources().getColor(R.color.transparent));
-		            exercise_button.setTextColor(getResources().getColor(R.color.textcolor));
+		        	padding.setBackgroundColor(getResources().getColor(R.color.transparent));
+		        	setViewBackgroundColourOnRelease(name);
+		        	setViewBackgroundColourOnRelease(go);
 		            v.performClick();
 		        }
 		        return true;
 		    }
 		});
 
-		TextView name = (TextView) exercise_row_view.findViewById(R.id.exercise_name);
 		name.setText(exercise.getName());
 		
 		return exercise_row_view;
+	}
+	
+	public void setViewBackgroundColourOnClick(TextView v){
+		v.setBackgroundColor(getResources().getColor(R.color.textcolor));
+        v.setTextColor(getResources().getColor(R.color.transparent));
+	}
+	
+	public void setViewBackgroundColourOnRelease(TextView v){
+		v.setBackgroundColor(getResources().getColor(R.color.transparent));
+    	v.setTextColor(getResources().getColor(R.color.textcolor));
 	}
 
 }

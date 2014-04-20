@@ -4,7 +4,8 @@
     android:layout_height="70dp"
     android:orientation="horizontal" >
     
-    <View android:layout_height="70dp"
+    <View android:id="@+id/row_padding" 
+        android:layout_height="70dp"
 		android:layout_width="20dp"
 		android:layout_marginTop="2dp"
     	android:layout_marginBottom="2dp"
@@ -24,11 +25,12 @@
         android:textSize="22sp"
 		android:layout_weight="2" />
     
-    <Button android:id="@+id/go_to_exercise"
+    <TextView android:id="@+id/go_to_exercise"
         android:layout_height="fill_parent"
         android:layout_width="0dp"
         android:layout_marginTop="2dp"
     	android:layout_marginBottom="2dp"
+    	android:gravity="center"
         android:layout_weight="1"
         android:background="@color/transparent"
         android:textColor="@color/textcolor"
