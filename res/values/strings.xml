@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Weightlifting</string>
+    <string name="app_name">LIFT</string>
     <string name="action_settings">Settings</string>
     <string name="workout">WORKOUT</string>
     <string name="overview">OVERVIEW</string>
