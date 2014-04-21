@@ -1,13 +1,7 @@
 package com.example.weightlifting;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-
-public class SetViewAdapter extends FragmentPagerAdapter{
+public class SetViewAdapter { /*extends FragmentPagerAdapter{
 	
 	private List<Fragment> set_fragments;
 
@@ -29,6 +23,6 @@ public class SetViewAdapter extends FragmentPagerAdapter{
 	@Override
 	public int getCount(){
 		return set_fragments.size();
-	}
+	}*/
 
 }

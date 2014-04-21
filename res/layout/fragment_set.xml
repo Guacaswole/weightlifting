@@ -2,24 +2,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainbackground"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
+    
+    <View android:layout_width="match_parent"
+       		android:layout_height="0dp" 
+       		android:layout_weight="1" />
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="0" >
 
     <TextView 
         android:id="@+id/set_name" 
-        android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textSize="30sp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:background="@color/textcolor"
+        android:textColor="@color/transparent"
+		android:textSize="22sp" />
+    
+    <View android:id="@+id/frag_fake_view"
+       		android:layout_width="0dp"
+       		android:layout_height="0dp" 
+       		android:layout_below="@id/set_name"
+       		android:layout_centerInParent="true"/>
 
     <EditText 
         android:id="@+id/target_weight" 
-        android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_below="@id/set_name"
+        android:layout_toLeftOf="@id/frag_fake_view"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:background="@color/textcolor"
+        android:textColor="@color/transparent"
 		android:inputType="number" />
     
     <TextView 
         android:id="@+id/target_reps" 
-        android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_below="@id/set_name"
+        android:layout_toRightOf="@id/frag_fake_view"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:background="@color/textcolor"
+        android:textColor="@color/transparent" />
    
     <EditText
         android:id="@+id/no_of_reps_completed" 
@@ -27,4 +66,10 @@
 		android:layout_height="wrap_content"
 		android:inputType="number" />
 
+	</RelativeLayout>
+	
+    <View android:layout_width="match_parent"
+    	android:layout_height="0dp" 
+    	android:layout_weight="1" />
+    
 </LinearLayout>
