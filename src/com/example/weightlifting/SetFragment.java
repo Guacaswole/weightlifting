@@ -39,12 +39,10 @@ public class SetFragment extends Fragment {
 		
         View set_view = (View) inflater.inflate(R.layout.fragment_set, container, false);
         
-        TextView set_name = (TextView) set_view.findViewById(R.id.set_name);
         EditText target_weight = (EditText) set_view.findViewById(R.id.target_weight);
         TextView target_reps   = (TextView) set_view.findViewById(R.id.target_reps);
-        EditText no_of_reps_completed = (EditText) set_view.findViewById(R.id.no_of_reps_completed); 
+        EditText no_of_reps_completed = (EditText) set_view.findViewById(R.id.reps_completed); 
         
-        set_name.setText(set.getName());
         target_weight.setText(String.valueOf(set.getTargetWeight()));
         target_reps.setText(String.valueOf(set.getTargetReps()));
         no_of_reps_completed.setText(String.valueOf(set.getNoOfRepsCompleted()));
