@@ -1,23 +1,12 @@
 package com.example.weightlifting;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,31 +22,19 @@ public class WorkoutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_workout);
 		
-		AssetManager asset_manager = getAssets();
+		DatabaseHandler data_source = new DatabaseHandler(this);
+		User me = data_source.getUser(1);
+		String workout_str = data_source.getNextWorkoutForUser(me);
 		
-		InputStream workout_json_file;
-		
-		workout_json_file = null;
-		try {
-			workout_json_file = asset_manager.open("workout_json.txt");
-		} catch (IOException e1) {
-			Log.e(TAG, "WorkoutActivity:onCreate() File not found");
-			e1.printStackTrace();
-		}
+		GsonBuilder gson_builder = new GsonBuilder();
+		Gson gson = gson_builder.create();		
+		Workout workout = gson.fromJson(workout_str, Workout.class);
 
-		Reader file_reader = null;
-		file_reader = new BufferedReader(new InputStreamReader(workout_json_file));
-		
-		if(file_reader != null){
-			GsonBuilder gson_builder = new GsonBuilder();
-			Gson gson = gson_builder.create();		
-			Workout workout = gson.fromJson(file_reader, Workout.class);
-
-			LinearLayout exercise_list_layout = (LinearLayout) findViewById(R.id.main_layout);
-			for(Exercise exercise : workout.getExercises()){
-				exercise_list_layout.addView(getExerciseRowView(exercise));
-			}
+		LinearLayout exercise_list_layout = (LinearLayout) findViewById(R.id.main_layout);
+		for(Exercise exercise : workout.getExercises()){
+			exercise_list_layout.addView(getExerciseRowView(exercise));
 		}
+		
 	}
 
 	public View getExerciseRowView(final Exercise exercise) {

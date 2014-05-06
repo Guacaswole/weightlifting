@@ -137,7 +137,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String[] COLUMNS = new String[] { COLUMN_ID,
 				COLUMN_NAME, COLUMN_USERNAME, COLUMN_PASSWORD };
 		
-		Cursor cursor = db.query(TABLE_USER, COLUMNS, COLUMN_ID + "?=",
+		Cursor cursor = db.query(TABLE_USER, COLUMNS, COLUMN_ID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null);
 		
 		if(cursor != null) cursor.moveToFirst();
@@ -158,6 +158,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		
 		return user;
 	}
+
 	 
 	// Getting All Users
 	public List<User> getAllUsers() { 
@@ -222,13 +223,53 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();	
 	}
 	
-	public List<String> getAllWorkoutsForUser(User user) { 
+	public void addWorkoutForUser(User user, String workout){
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues values = new ContentValues();
+		
+		values.put(COLUMN_WORKOUT, workout);
+		values.put(COLUMN_COMPLETED, false);
+		
+		Log.i(TAG, "Adding Workout to Workout Table...");
+		db.insert(TABLE_WORKOUT, null, values);
+		Log.i(TAG, "Workout was added successfully.");
+		
+		values.clear();
+		
+		String query = "SELECT " + COLUMN_ID + " from " + TABLE_WORKOUT
+					 + " order by " + COLUMN_ID + " DESC limit 1";
+		Cursor cursor = db.rawQuery(query, null);
+		if(cursor != null) cursor.moveToFirst();
+		int workout_id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+		
+		values.put(COLUMN_USER_ID, user.getId());
+		values.put(COLUMN_WORKOUT_ID, workout_id);
+		
+		Log.i(TAG, "Adding Workout to UserWorkout Table...");
+		db.insert(TABLE_USER_WORKOUT, null, values);
+		Log.i(TAG, "Workout was added to " + user.getName() + " successfully.");
+		
+		db.close();
+	}
 	
+	public List<String> getAllWorkoutsForUser(User user) { 
+		return getUserWorkoutList(user, false, 0);
+	}
+	
+	public String getNextWorkoutForUser(User user) {
+		Log.i(TAG, "Getting user " + user.getName() + "'s next workout...");
+		String workout = getUserWorkoutList(user, true, 1).get(0);
+		Log.i(TAG, "Got workout: " + workout);
+		return workout;
+	}
+	
+	private List<String> getUserWorkoutList(User user, Boolean get_uncompleted_workouts_only, int count) {
 		int id = user.getId();
 		SQLiteDatabase db = this.getReadableDatabase();
 		
 		Cursor workout_id_cursor = db.query(TABLE_USER_WORKOUT, new String[] { COLUMN_WORKOUT_ID },
-		COLUMN_USER_ID + "?=", new String[] { String.valueOf(id) }, null, null, null);
+		COLUMN_USER_ID + "=?", new String[] { String.valueOf(id) }, null, null, null);
 		
 		List<String> workout_list = new ArrayList<String>();
 		
@@ -241,8 +282,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			while(!workout_id_cursor.isAfterLast()){
 				
 				workout_id = workout_id_cursor.getInt(workout_id_cursor.getColumnIndex(COLUMN_WORKOUT_ID));
-				workout_cursor = db.query(TABLE_WORKOUT, COLUMNS, COLUMN_ID + "?=", 
+				
+				// Get all workouts for user
+				if(!get_uncompleted_workouts_only && count == 0){ 
+					workout_cursor = db.query(TABLE_WORKOUT, COLUMNS, COLUMN_ID + "=?", 
 						new String[] { String.valueOf(workout_id) }, null, null, null);
+				}
+				// Get a number of uncompleted workouts for user
+				else if (get_uncompleted_workouts_only && count > 1){ 
+					workout_cursor = db.query(TABLE_WORKOUT, COLUMNS, COLUMN_ID + "=? AND " 
+								   + COLUMN_COMPLETED + "=?", new String[] { String.valueOf(workout_id), 
+								   String.valueOf(0) }, null, null, String.valueOf(count));
+				}
+				// Get all uncompleted workouts for user
+				else {
+					workout_cursor = db.query(TABLE_WORKOUT, COLUMNS, COLUMN_ID + "=? AND " 
+							   + COLUMN_COMPLETED + "=?", new String[] { String.valueOf(workout_id), 
+							   String.valueOf(0) }, null, null, null);
+				}
 				
 				if (workout_cursor != null) workout_cursor.moveToFirst();
 				
@@ -254,10 +311,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		
 		db.close();	
-		return workout_list; 
-	}
-	
-	public String getNextWorkoutForUser(User user) { 
-		return "";
+		return workout_list;
 	}
 }

@@ -9,6 +9,12 @@ public class User {
 	
 	public User() { }
 	
+	public User(String name, String username, String password){
+		_name = name;
+		_username = username;
+		_password = password;
+	}
+	
 	public int getId() { return _id; }
 	public void setId(int id) { _id = id; }
 	
