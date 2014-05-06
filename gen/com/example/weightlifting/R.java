@@ -32,23 +32,30 @@ public final class R {
         public static final int icon=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090011;
+        public static final int action_settings=0x7f090018;
         public static final int connect=0x7f090004;
         public static final int exercise_name=0x7f090009;
         public static final int fake_view=0x7f090001;
-        public static final int frag_fake_view=0x7f09000e;
+        public static final int frag_fake_view=0x7f09000f;
         public static final int fragment_container=0x7f090006;
         public static final int go_to_exercise=0x7f09000a;
         public static final int icon=0x7f090000;
         public static final int main_layout=0x7f090007;
         public static final int overview=0x7f090003;
-        public static final int reps_completed=0x7f090010;
+        public static final int reps_completed=0x7f090016;
+        public static final int reps_completed_background=0x7f090015;
+        public static final int reps_completed_button=0x7f090014;
+        public static final int reps_completed_label=0x7f090017;
         public static final int row_padding=0x7f090008;
         public static final int settings=0x7f090005;
-        public static final int target_reps=0x7f09000f;
+        public static final int target_reps=0x7f090012;
+        public static final int target_reps_background=0x7f090011;
+        public static final int target_reps_button=0x7f090010;
+        public static final int target_reps_label=0x7f090013;
         public static final int target_weight=0x7f09000d;
         public static final int target_weight_background=0x7f09000c;
         public static final int target_weight_button=0x7f09000b;
+        public static final int target_weight_label=0x7f09000e;
         public static final int workout=0x7f090002;
     }
     public static final class layout {
@@ -70,7 +77,9 @@ public final class R {
         public static final int connect=0x7f060004;
         public static final int hello_world=0x7f060007;
         public static final int overview=0x7f060003;
+        public static final int reps_completed=0x7f06000c;
         public static final int settings=0x7f060005;
+        public static final int target_reps=0x7f06000b;
         public static final int target_weight=0x7f06000a;
         public static final int title_activity_set_view=0x7f060008;
         public static final int workout=0x7f060002;

@@ -10,70 +10,110 @@
        		android:layout_height="0dp" 
        		android:layout_weight="1" />
     
-   <RelativeLayout 
+  	<RelativeLayout 
         android:layout_width="match_parent"
     	android:layout_height="wrap_content" 
-    	android:layout_weight="0" >
+    	android:layout_weight="1" >
 
        <!-- Target weight button -->
         <RelativeLayout android:id="@+id/target_weight_button"
-        android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
+        android:layout_width="125dp"
+    	android:layout_height="125dp"
     	android:gravity="center"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true" 
+        android:layout_marginBottom="-25sp">
         <ImageView android:id="@+id/target_weight_background"
-       		android:layout_width="100dp"
-       		android:layout_height="100dp" 
+       		android:layout_width="match_parent"
+       		android:layout_height="match_parent" 
        		android:src="@drawable/darkhexagon" />
     	<EditText android:id="@+id/target_weight"
-        	android:layout_width="100dp"
-        	android:layout_height="100dp"
-        	android:layout_marginRight="1dp"
-        	android:layout_marginBottom="1dp"
-        	android:gravity="center_horizontal"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginTop="20dp"
+        	android:layout_centerHorizontal="true"
         	android:inputType="number" 
         	android:text="8"
         	android:textColor="@color/white"
 			android:textSize="40sp" />
-    	<TextView android:layout_width="wrap_content"
+    	<TextView android:id="@+id/target_weight_label" 
+    	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
     	    android:text="@string/target_weight"
     	    android:textColor="@color/white"
-    	    android:gravity="center_horizontal"
-    	    android:layout_alignBottom="@id/target_weight" />"
+    	    android:textSize="16sp"
+    	    android:layout_centerInParent="true"
+    	    android:layout_below="@id/target_weight"/>"
     	</RelativeLayout>
     
     <View android:id="@+id/frag_fake_view"
        		android:layout_width="0dp"
        		android:layout_height="0dp" 
        		android:layout_below="@id/target_weight_button"
+       		android:layout_marginLeft="-5sp"
+       		android:layout_marginRight="-5sp"
        		android:layout_centerInParent="true"/>
 
     <!-- Target reps button -->
-    <TextView 
-        android:id="@+id/target_reps" 
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
+    <RelativeLayout android:id="@+id/target_reps_button"
+        android:layout_width="125dp"
+    	android:layout_height="125dp"
         android:layout_below="@id/target_weight_button"
         android:layout_toLeftOf="@id/frag_fake_view"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:background="@color/textcolor"
-        android:textColor="@color/transparent"/>
+    	android:gravity="center"
+        android:layout_centerHorizontal="true" >
+        <ImageView android:id="@+id/target_reps_background"
+       		android:layout_width="match_parent"
+       		android:layout_height="match_parent" 
+       		android:src="@drawable/darkhexagon" />
+    	<EditText android:id="@+id/target_reps"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginTop="20dp"
+        	android:layout_centerHorizontal="true"
+        	android:inputType="number" 
+        	android:text="8"
+        	android:textColor="@color/white"
+			android:textSize="40sp" />
+    	<TextView android:id="@+id/target_reps_label" 
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/target_reps"
+    	    android:textColor="@color/white"
+    	    android:textSize="16sp"
+    	    android:layout_centerInParent="true"
+    	    android:layout_below="@id/target_reps"/>"
+    	</RelativeLayout>
 
-    <!-- reps completed button -->
-    <EditText
-        android:id="@+id/reps_completed"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/target_weight_button"
-        android:layout_toRightOf="@+id/target_reps"
-        android:background="@color/textcolor"
-        android:gravity="center"
-        android:textColor="@color/transparent" 
-        android:inputType="number" />
+    <!-- reps completed button -->   
+    <RelativeLayout android:id="@+id/reps_completed_button"
+        android:layout_width="125dp"
+    	android:layout_height="125dp"
+        android:layout_below="@id/target_weight_button"
+        android:layout_toRightOf="@id/frag_fake_view"
+    	android:gravity="center"
+        android:layout_centerHorizontal="true" >
+        <ImageView android:id="@+id/reps_completed_background"
+       		android:layout_width="match_parent"
+       		android:layout_height="match_parent" 
+       		android:src="@drawable/darkhexagon" />
+    	<EditText android:id="@+id/reps_completed"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginTop="20dp"
+        	android:layout_centerHorizontal="true"
+        	android:inputType="number" 
+        	android:text="8"
+        	android:textColor="@color/white"
+			android:textSize="40sp" />
+    	<TextView android:id="@+id/reps_completed_label" 
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/reps_completed"
+    	    android:textColor="@color/white"
+    	    android:textSize="16sp"
+    	    android:layout_centerInParent="true"
+    	    android:layout_below="@id/reps_completed"/>"
+    	</RelativeLayout>
 
 	</RelativeLayout>
 	

@@ -11,6 +11,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_set_view">SetViewActivity</string>
     <string name="click_exercise_button">></string>
-    <string name="target_weight">Target\nWeight (kg)</string>
+    <string name="target_weight">Target Weight (kg)</string>
+    <string name="target_reps">Target Reps</string>
+    <string name="reps_completed">Reps Completed</string>
 
 </resources>
