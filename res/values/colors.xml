@@ -5,5 +5,6 @@
     <color name="textcolor">#334D5C</color>
     <color name="transparent">#B3FFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="set_background">#334D5C</color>
 
 </resources>

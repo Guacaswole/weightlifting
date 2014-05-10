@@ -2,14 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainbackground"
+    android:background="@color/set_background"
     android:orientation="vertical"
     tools:context=".MainActivity" >
     
-    <View android:layout_width="match_parent"
-       		android:layout_height="0dp" 
-       		android:layout_weight="1" />
-    
+    <TextView android:id="@+id/exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp" 
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="SQUAT"
+        android:textStyle="bold"
+        />
+
   	<RelativeLayout 
         android:layout_width="match_parent"
     	android:layout_height="wrap_content" 
@@ -21,11 +29,11 @@
     	android:layout_height="125dp"
     	android:gravity="center"
         android:layout_centerHorizontal="true" 
-        android:layout_marginBottom="-25sp">
+        android:layout_marginBottom="-27sp">
         <ImageView android:id="@+id/target_weight_background"
        		android:layout_width="match_parent"
        		android:layout_height="match_parent" 
-       		android:src="@drawable/darkhexagon" />
+       		android:src="@drawable/whitehexagon" />
     	<EditText android:id="@+id/target_weight"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
@@ -33,13 +41,13 @@
         	android:layout_centerHorizontal="true"
         	android:inputType="number" 
         	android:text="8"
-        	android:textColor="@color/white"
+        	android:textColor="@color/set_background"
 			android:textSize="40sp" />
     	<TextView android:id="@+id/target_weight_label" 
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
     	    android:text="@string/target_weight"
-    	    android:textColor="@color/white"
+    	    android:textColor="@color/set_background"
     	    android:textSize="16sp"
     	    android:layout_centerInParent="true"
     	    android:layout_below="@id/target_weight"/>"
@@ -64,7 +72,7 @@
         <ImageView android:id="@+id/target_reps_background"
        		android:layout_width="match_parent"
        		android:layout_height="match_parent" 
-       		android:src="@drawable/darkhexagon" />
+       		android:src="@drawable/whitehexagon" />
     	<EditText android:id="@+id/target_reps"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
@@ -72,13 +80,13 @@
         	android:layout_centerHorizontal="true"
         	android:inputType="number" 
         	android:text="8"
-        	android:textColor="@color/white"
+        	android:textColor="@color/set_background"
 			android:textSize="40sp" />
     	<TextView android:id="@+id/target_reps_label" 
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
     	    android:text="@string/target_reps"
-    	    android:textColor="@color/white"
+    	    android:textColor="@color/set_background"
     	    android:textSize="16sp"
     	    android:layout_centerInParent="true"
     	    android:layout_below="@id/target_reps"/>"
@@ -95,7 +103,7 @@
         <ImageView android:id="@+id/reps_completed_background"
        		android:layout_width="match_parent"
        		android:layout_height="match_parent" 
-       		android:src="@drawable/darkhexagon" />
+       		android:src="@drawable/whitehexagon" />
     	<EditText android:id="@+id/reps_completed"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
@@ -103,13 +111,13 @@
         	android:layout_centerHorizontal="true"
         	android:inputType="number" 
         	android:text="8"
-        	android:textColor="@color/white"
+        	android:textColor="@color/set_background"
 			android:textSize="40sp" />
     	<TextView android:id="@+id/reps_completed_label" 
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
     	    android:text="@string/reps_completed"
-    	    android:textColor="@color/white"
+    	    android:textColor="@color/set_background"
     	    android:textSize="16sp"
     	    android:layout_centerInParent="true"
     	    android:layout_below="@id/reps_completed"/>"
@@ -117,8 +125,22 @@
 
 	</RelativeLayout>
 	
-    <View android:layout_width="match_parent"
+  	<TextView android:id="@+id/set_notes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp" 
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="@string/set_notes_label"
+        android:textStyle="bold"
+        />
+	
+    <EditText android:id="@+id/set_notes"
+        android:layout_width="match_parent"
     	android:layout_height="0dp" 
-    	android:layout_weight="1" />
+    	android:layout_weight="1" 
+    	android:padding="5dp"
+    	android:textColor="@color/white"
+    	android:hint="@string/set_notes"/>
     
 </LinearLayout>

@@ -14,5 +14,7 @@
     <string name="target_weight">Target Weight (kg)</string>
     <string name="target_reps">Target Reps</string>
     <string name="reps_completed">Reps Completed</string>
+    <string name="set_notes">Type notes on your set here...</string>
+    <string name="set_notes_label">Notes:</string>
 
 </resources>

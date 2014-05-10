@@ -46,7 +46,7 @@ public class WorkoutActivity extends Activity {
 			public void onClick(View v){
 				Intent intent = new Intent(v.getContext(), SetViewActivity.class);
 				startActivity(intent);
-				SetViewActivity.setSetList(exercise.getSets());
+				SetViewActivity.setExercise(exercise);
 			}
 		});
 		

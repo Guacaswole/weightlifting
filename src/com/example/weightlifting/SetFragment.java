@@ -15,8 +15,9 @@ import com.google.gson.GsonBuilder;
 public class SetFragment extends Fragment {
 	
 	final static String EXTRA_SET_GSON = "SET_GSON";
+	final static String EXTRA_EXERCISE_NAME = "EXERCISE_NAME";
 
-    public static final SetFragment newInstance(Set set){
+    public static final SetFragment newInstance(Set set, String exercise_name){
     	SetFragment set_fragment = new SetFragment();
     	Bundle bundle = new Bundle(1);
     	GsonBuilder gson_builder = new GsonBuilder();
@@ -24,6 +25,7 @@ public class SetFragment extends Fragment {
 		
 		String set_gson = gson.toJson(set);
     	bundle.putString(EXTRA_SET_GSON, set_gson);
+    	bundle.putString(EXTRA_EXERCISE_NAME, exercise_name);
     	set_fragment.setArguments(bundle);
     	
     	return set_fragment;
@@ -34,6 +36,8 @@ public class SetFragment extends Fragment {
         Bundle savedInstanceState) {
 		
 		String set_gson = getArguments().getString(EXTRA_SET_GSON);
+		String exercise_name = getArguments().getString(EXTRA_EXERCISE_NAME);
+		
 		GsonBuilder gson_builder = new GsonBuilder();
     	Gson gson = gson_builder.create();
 		Set set = gson.fromJson(set_gson, Set.class);
@@ -42,6 +46,7 @@ public class SetFragment extends Fragment {
 		
         View set_view = (View) inflater.inflate(R.layout.fragment_set, container, false);
         
+        TextView exercise_title = (TextView) set_view.findViewById(R.id.exercise_name);
         EditText target_weight = (EditText) set_view.findViewById(R.id.target_weight);
         TextView target_weight_label = (TextView) set_view.findViewById(R.id.target_weight_label);
         TextView target_reps   = (TextView) set_view.findViewById(R.id.target_reps);
@@ -49,13 +54,14 @@ public class SetFragment extends Fragment {
         EditText reps_completed = (EditText) set_view.findViewById(R.id.reps_completed); 
         TextView reps_completed_label   = (TextView) set_view.findViewById(R.id.reps_completed_label);
         
-        target_weight.setTypeface(font);
+        /*target_weight.setTypeface(font);
         target_weight_label.setTypeface(font);
         target_reps.setTypeface(font);
         target_reps_label.setTypeface(font);
         reps_completed.setTypeface(font);
-        reps_completed_label.setTypeface(font);
+        reps_completed_label.setTypeface(font);*/
         
+        exercise_title.setText(exercise_name);
         target_weight.setText(String.valueOf(set.getTargetWeight()));
         target_reps.setText(String.valueOf(set.getTargetReps()));
         reps_completed.setText(String.valueOf(set.getNoOfRepsCompleted()));

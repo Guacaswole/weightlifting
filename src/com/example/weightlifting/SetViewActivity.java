@@ -7,9 +7,9 @@ import android.support.v4.app.FragmentActivity;
 
 public class SetViewActivity extends FragmentActivity {
 	
-	private static Set[] sets;
 	private Fragment[] set_fragments;
 	private ActionBar.Tab[] set_tabs;
+	private static Exercise exercise;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +19,13 @@ public class SetViewActivity extends FragmentActivity {
 		ActionBar action_bar = getActionBar();
         action_bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         
+        Set[] sets = exercise.getSets();
         int no_of_sets = sets.length;
 		set_fragments = new Fragment[no_of_sets];	
 		set_tabs = new ActionBar.Tab[no_of_sets];
 		
 		for(int i=0; i<sets.length; i++){
-			set_fragments[i] = SetFragment.newInstance(sets[i]);
+			set_fragments[i] = SetFragment.newInstance(sets[i], exercise.getName());
 			set_tabs[i] = action_bar.newTab();
 			set_tabs[i].setText(sets[i].getName());
 			set_tabs[i].setTabListener(new SetTabListener(set_fragments[i]));
@@ -32,7 +33,7 @@ public class SetViewActivity extends FragmentActivity {
 		}		
 	}
 	
-	public static final void setSetList(Set[] set_list){
-		sets = set_list;
+	public static final void setExercise(Exercise ex){
+		exercise = ex;
 	}
 }

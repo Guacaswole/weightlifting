@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class color {
         public static final int mainbackground=0x7f040000;
+        public static final int set_background=0x7f040004;
         public static final int textcolor=0x7f040001;
         public static final int transparent=0x7f040002;
         public static final int white=0x7f040003;
@@ -27,12 +28,11 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int darkhexagon=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int icon=0x7f020002;
+        public static final int icon=0x7f020000;
+        public static final int whitehexagon=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090018;
+        public static final int action_settings=0x7f09001a;
         public static final int connect=0x7f090004;
         public static final int exercise_name=0x7f090009;
         public static final int fake_view=0x7f090001;
@@ -47,6 +47,8 @@ public final class R {
         public static final int reps_completed_button=0x7f090014;
         public static final int reps_completed_label=0x7f090017;
         public static final int row_padding=0x7f090008;
+        public static final int set_notes=0x7f090019;
+        public static final int set_notes_label=0x7f090018;
         public static final int settings=0x7f090005;
         public static final int target_reps=0x7f090012;
         public static final int target_reps_background=0x7f090011;
@@ -78,6 +80,8 @@ public final class R {
         public static final int hello_world=0x7f060007;
         public static final int overview=0x7f060003;
         public static final int reps_completed=0x7f06000c;
+        public static final int set_notes=0x7f06000d;
+        public static final int set_notes_label=0x7f06000e;
         public static final int settings=0x7f060005;
         public static final int target_reps=0x7f06000b;
         public static final int target_weight=0x7f06000a;
