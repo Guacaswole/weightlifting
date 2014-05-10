@@ -16,5 +16,6 @@
     <string name="reps_completed">Reps Completed</string>
     <string name="set_notes">Type notes on your set here...</string>
     <string name="set_notes_label">Notes:</string>
+    <string name="finish_workout">Finish Workout</string>
 
 </resources>

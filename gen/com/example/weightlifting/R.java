@@ -11,6 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int finish_workout_btn_bg=0x7f040005;
         public static final int mainbackground=0x7f040000;
         public static final int set_background=0x7f040004;
         public static final int textcolor=0x7f040001;
@@ -32,32 +33,33 @@ public final class R {
         public static final int whitehexagon=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001a;
+        public static final int action_settings=0x7f09001b;
         public static final int connect=0x7f090004;
-        public static final int exercise_name=0x7f090009;
+        public static final int exercise_name=0x7f09000a;
         public static final int fake_view=0x7f090001;
-        public static final int frag_fake_view=0x7f09000f;
+        public static final int finish_workout_btn=0x7f090008;
+        public static final int frag_fake_view=0x7f090010;
         public static final int fragment_container=0x7f090006;
-        public static final int go_to_exercise=0x7f09000a;
+        public static final int go_to_exercise=0x7f09000b;
         public static final int icon=0x7f090000;
         public static final int main_layout=0x7f090007;
         public static final int overview=0x7f090003;
-        public static final int reps_completed=0x7f090016;
-        public static final int reps_completed_background=0x7f090015;
-        public static final int reps_completed_button=0x7f090014;
-        public static final int reps_completed_label=0x7f090017;
-        public static final int row_padding=0x7f090008;
-        public static final int set_notes=0x7f090019;
-        public static final int set_notes_label=0x7f090018;
+        public static final int reps_completed=0x7f090017;
+        public static final int reps_completed_background=0x7f090016;
+        public static final int reps_completed_button=0x7f090015;
+        public static final int reps_completed_label=0x7f090018;
+        public static final int row_padding=0x7f090009;
+        public static final int set_notes=0x7f09001a;
+        public static final int set_notes_label=0x7f090019;
         public static final int settings=0x7f090005;
-        public static final int target_reps=0x7f090012;
-        public static final int target_reps_background=0x7f090011;
-        public static final int target_reps_button=0x7f090010;
-        public static final int target_reps_label=0x7f090013;
-        public static final int target_weight=0x7f09000d;
-        public static final int target_weight_background=0x7f09000c;
-        public static final int target_weight_button=0x7f09000b;
-        public static final int target_weight_label=0x7f09000e;
+        public static final int target_reps=0x7f090013;
+        public static final int target_reps_background=0x7f090012;
+        public static final int target_reps_button=0x7f090011;
+        public static final int target_reps_label=0x7f090014;
+        public static final int target_weight=0x7f09000e;
+        public static final int target_weight_background=0x7f09000d;
+        public static final int target_weight_button=0x7f09000c;
+        public static final int target_weight_label=0x7f09000f;
         public static final int workout=0x7f090002;
     }
     public static final class layout {
@@ -77,6 +79,7 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int click_exercise_button=0x7f060009;
         public static final int connect=0x7f060004;
+        public static final int finish_workout=0x7f06000f;
         public static final int hello_world=0x7f060007;
         public static final int overview=0x7f060003;
         public static final int reps_completed=0x7f06000c;

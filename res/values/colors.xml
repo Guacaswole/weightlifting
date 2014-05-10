@@ -6,5 +6,6 @@
     <color name="transparent">#B3FFFFFF</color>
     <color name="white">#FFFFFF</color>
     <color name="set_background">#334D5C</color>
+    <color name="finish_workout_btn_bg">#F26971</color>
 
 </resources>

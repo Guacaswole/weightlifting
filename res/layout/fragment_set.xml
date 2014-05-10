@@ -13,7 +13,7 @@
         android:gravity="center"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:text="SQUAT"
         android:textStyle="bold"
         />
@@ -42,7 +42,7 @@
         	android:inputType="number" 
         	android:text="8"
         	android:textColor="@color/set_background"
-			android:textSize="40sp" />
+			android:textSize="65sp" />
     	<TextView android:id="@+id/target_weight_label" 
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
         	android:inputType="number" 
         	android:text="8"
         	android:textColor="@color/set_background"
-			android:textSize="40sp" />
+			android:textSize="65sp" />
     	<TextView android:id="@+id/target_reps_label" 
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
         	android:inputType="number" 
         	android:text="8"
         	android:textColor="@color/set_background"
-			android:textSize="40sp" />
+			android:textSize="65sp" />
     	<TextView android:id="@+id/reps_completed_label" 
     	    android:layout_width="wrap_content"
     	    android:layout_height="wrap_content"
@@ -139,7 +139,8 @@
         android:layout_width="match_parent"
     	android:layout_height="0dp" 
     	android:layout_weight="1" 
-    	android:padding="5dp"
+    	android:layout_marginLeft="5dp"
+    	android:layout_marginRight="5dp"
     	android:textColor="@color/white"
     	android:hint="@string/set_notes"/>
     
