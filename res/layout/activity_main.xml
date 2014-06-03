@@ -29,7 +29,7 @@
        		android:layout_height="0dp" 
        		android:layout_centerInParent="true"/>
     	<Button
-        	android:id="@+id/workout"
+        	android:id="@+id/workout_button"
         	android:layout_width="match_parent"
         	android:layout_height="100dp"
         	android:layout_marginRight="1dp"
@@ -40,7 +40,7 @@
         	android:text="@string/workout" 
         	/>
     	<Button
-        	android:id="@+id/overview"
+        	android:id="@+id/my_progress"
         	android:layout_width="match_parent"
         	android:layout_height="100dp"
         	android:layout_marginLeft="1dp"
@@ -48,28 +48,28 @@
         	android:layout_toRightOf="@id/fake_view"
         	android:background="@color/transparent"
         	android:textColor="@color/textcolor"
-        	android:text="@string/overview" />
+        	android:text="MY PROGRESS" />
     	<Button
-        	android:id="@+id/connect"
+        	android:id="@+id/create_a_workout_button"
         	android:layout_width="match_parent"
         	android:layout_height="100dp"
         	android:layout_marginRight="1dp"
         	android:layout_marginTop="1dp"
-        	android:layout_below="@id/workout"
+        	android:layout_below="@id/workout_button"
         	android:layout_toLeftOf="@id/fake_view"
         	android:background="@color/transparent"
         	android:textColor="@color/textcolor"
-        	android:text="@string/connect" />
+        	android:text="CREATE A WORKOUT" />
     	<Button
-        	android:id="@+id/settings"
+        	android:id="@+id/wod_list_button"
         	android:layout_width="match_parent"
         	android:layout_height="100dp"
         	android:layout_marginLeft="1dp"
         	android:layout_marginTop="1dp"
-        	android:layout_below="@id/overview"
+        	android:layout_below="@id/my_progress"
         	android:layout_toRightOf="@id/fake_view"
         	android:background="@color/transparent"
         	android:textColor="@color/textcolor"
-        	android:text="@string/settings" />
+        	android:text="WORKOUT OF THE DAY" />
     </RelativeLayout>
 </LinearLayout>

@@ -4,17 +4,19 @@ import com.google.gson.annotations.SerializedName;
 public class Exercise {
 	
 	@SerializedName("name")
-	private String _name;
+	private String name;
 	
 	@SerializedName("sets")
-	private Set[] _sets;
+	private Set[] sets;
 	
 	public Exercise() { } 
 	
-	public String getName(){ return _name; }
-	public void   setName(String name){ _name = name; }
+	public Exercise(String name) { this.name = name; }
 	
-	public Set[] getSets() { return _sets; }
-	public void  setSets(Set[] sets) { _sets = sets; }
+	public String getName(){ return name; }
+	public void   setName(String name){ this.name = name; }
+	
+	public Set[] getSets() { return sets; }
+	public void  setSets(Set[] sets) { this.sets = sets; }
 }
 

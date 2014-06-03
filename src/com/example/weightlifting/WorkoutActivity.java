@@ -1,7 +1,13 @@
 package com.example.weightlifting;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,27 +18,59 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 
 public class WorkoutActivity extends Activity {
 	
 	private static final String TAG = "DEBUG";
+	
+    private String loadWorkout() throws IOException{
+        //Log.d(Constants.TAG, "Loading WODs...");
+        
+        Resources resources = getApplicationContext().getResources();
+        InputStream input = resources.openRawResource(R.raw.workout_json);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        String workout_str = "";
+        try {
+        	String line = "";
+        	while ((line = reader.readLine()) != null){
+        		workout_str = line;
+        		//Log.d(Constants.TAG, "Added WOD [" + line +"]");
+        	}
+        } finally {
+        	reader.close();
+        }
+        return workout_str;
+        //Log.d(Constants.TAG, "WODs loading completed.");
+    }
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_workout);
 		
-		DatabaseHandler data_source = new DatabaseHandler(this);
+		/* DatabaseHandler data_source = new DatabaseHandler(this);
 		User me = data_source.getUser(1);
-		String workout_str = data_source.getNextWorkoutForUser(me);
+		String workout_str = data_source.getNextWorkoutForUser(me); */
 		
 		GsonBuilder gson_builder = new GsonBuilder();
 		Gson gson = gson_builder.create();		
-		Workout workout = gson.fromJson(workout_str, Workout.class);
+		Workout workout = new Workout();
+		try {
+			workout = gson.fromJson(loadWorkout(), Workout.class);
+		} catch (JsonSyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		LinearLayout exercise_list_layout = (LinearLayout) findViewById(R.id.main_layout);
-		for(Exercise exercise : workout.getExercises()){
-			exercise_list_layout.addView(getExerciseRowView(exercise));
+		if(workout.getExercises().length > 0){
+			for(Exercise exercise : workout.getExercises()){
+				exercise_list_layout.addView(getExerciseRowView(exercise));
+			}
 		}
 		
 	}

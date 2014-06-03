@@ -30,6 +30,25 @@
             android:name="com.example.weightlifting.SetViewActivity"
             android:label="@string/title_activity_set_view" >
         </activity>
+                <activity
+            android:name="com.example.weightlifting.WODActivity"
+            android:label="@string/title_activity_wod" >
+        </activity>
+        <activity
+            android:name="com.example.weightlifting.WODListActivity"
+            android:label="@string/title_activity_wod_list" 
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.example.weightlifting.CreateAWorkoutActivity"
+            android:label="@string/title_activity_create_a_workout" 
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.example.weightlifting.CustomWorkoutActivity"
+            android:label="@string/title_activity_custom_workout" 
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
     </application>
 
 </manifest>

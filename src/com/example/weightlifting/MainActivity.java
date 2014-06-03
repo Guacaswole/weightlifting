@@ -17,7 +17,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		MainScreenButton workout = new MainScreenButton(this, WorkoutActivity.class, R.id.workout);
+		MainScreenButton workout = new MainScreenButton(this, WorkoutActivity.class, R.id.workout_button);
+		MainScreenButton create_a_workout = new MainScreenButton(this, CreateAWorkoutActivity.class, R.id.create_a_workout_button);
+		MainScreenButton wod_list = new MainScreenButton(this, WODListActivity.class, R.id.wod_list_button);
+		
 	}
 
 	@Override

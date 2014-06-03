@@ -17,5 +17,18 @@
     <string name="set_notes">Type notes on your set here...</string>
     <string name="set_notes_label">Notes:</string>
     <string name="finish_workout">Finish Workout</string>
+    
+    <string name="test">TEST</string>
+    <string name="search_string">Search exercises...</string>
+    <string name="next_string">Next</string>
+    <string name="wod_list_button">WODs</string>
+    <string name="create_a_workout_button">Create a Workout</string>
+    <string name="select_sets_reps_button">Next</string>
+    
+    <!-- Activity Titles -->
+    <string name="title_activity_wod">Workout of the Day</string>
+    <string name="title_activity_wod_list">Select A Workout</string>
+    <string name="title_activity_create_a_workout">Create a Workout</string>
+    <string name="title_activity_custom_workout">Your Workout</string>
 
 </resources>
